@@ -40,6 +40,7 @@
       $codigo       = 'code';
       //matricular
         $MatricularNuevo= md5("MatricularNuevo");
+        $ListarMatricula= md5("ListarMatricula");
 
       $login= md5("login");
       //listar -  - - - - - - - - - - - - - - - - - - - - -
@@ -166,8 +167,11 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="a_principal.php?<?php echo $codigo; ?>=<?php echo $MatricularNuevo; ?>"> <span>MATRICULAR NUEVO <p class="label pull-left bg-red">Nuevo</p></span>     </a></li>
-                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Matricular Ciclo</a></li>
-                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i>Actualizar Matricula</a></li>
+                <li><a href="a_principal.php?<?php echo $codigo; ?>=<?php echo $ListarMatricula; ?>"><i class="fa fa-circle-o"></i> Listar Matricula</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i>Actualizar Matricula</a></li>
+
+
+
 
               </ul>
             </li>
@@ -183,7 +187,7 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Buscar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Buscar</a></li>
                 <li><a href="a_principal.php?<?php echo $codigo; ?>=<?php echo $RegistrarEmpleado; ?>"><i class="fa fa-circle-o"></i> Registrar</a></li>
 
                 <li><a href="a_principal.php?<?php echo $codigo; ?>=<?php echo $ListarEmpleado; ?>"><i class="fa fa-circle-o"></i>Listar</a></li>
@@ -196,9 +200,9 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ventas/venta"><i class="fa fa-circle-o"></i> Buscar</a></li>
-                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i> Registrar</a></li>
-                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i> Listar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Buscar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Registrar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Listar</a></li>
               </ul>
             </li>
 
@@ -208,9 +212,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i> Buscar</a></li>
-                <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i> Listar</a></li>
-                <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i> Registrar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Buscar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Listar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Registrar</a></li>
 
               </ul>
             </li>
@@ -222,9 +226,9 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="Reporte_Alumno.php" target="_blank"><i class="fa fa-circle-o"></i>Reporte Alumno</a></li>
-                <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i>Reporte Apoderado</a></li>
-                <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i>Reporte Empleados</a></li>
-                <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i>Reporte Matricula</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i>Reporte Apoderado</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i>Reporte Empleados</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i>Reporte Matricula</a></li>
 
               </ul>
             </li>

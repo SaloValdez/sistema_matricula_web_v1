@@ -15,6 +15,27 @@
      echo '<script> window.location="index.php"; </script>';
  }
     include("a_menu.php");
+     include ('a_conexion2.php');
+
+
+    //COMBO EMPLEADO
+    $sql="SELECT * from alumno";
+    $result = $mysqli->query($sql); //usamos la conexion para dar un resultado a la variable
+    if ($result->num_rows > 0) //si la variable tiene al menos 1 fila entonces seguimos con el codigo
+    {
+        $ComboAlumno="";
+        while ($row = $result->fetch_array(MYSQLI_ASSOC))
+        {
+            $ComboAlumno.=" <option value='".$row['idAlumno']."'>".$row['nomAlumno']." ".$row['apeAlumno']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
+        }
+    }
+    else
+    {
+        echo "No hubo resultados";
+    }
+
+
+
  ?>
         <!--Contenido-->
        <!-- Content Wrapper. Contains page content -->
@@ -62,8 +83,14 @@
  			 <td><input type="txt"name="codigo"size="25"value="" onkeyup="javascript:this.value=this.value.toUpperCase();"/></td>
  		 </tr>
      <tr>
- 			 <td height="52"><b>ID ALUMNO</b></td>
- 			 <td><input type="txt"name="alumno"size="25"value="" onkeyup="javascript:this.value=this.value.toUpperCase();"/></td>
+ 			 <td height="52"><b>ALUMNO</b></td>
+ 			 <td>
+
+             <select  name="alumno">
+               <?php echo $ComboAlumno; ?>
+             </select>
+
+ 			 </td>
  		 </tr>
 
 	 <tr>

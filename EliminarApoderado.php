@@ -14,6 +14,6 @@
   }else{
     echo "  no se elimino el registro";
   }
-
+  
 
    ?>

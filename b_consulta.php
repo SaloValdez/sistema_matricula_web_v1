@@ -43,7 +43,7 @@ if ($buscarAlumnos->num_rows > 0)
 			<td> ".$filaAlumnos['dniApoderado']. "</td>
 			<td> ".$filaAlumnos['traApoderado']. "</td>
 			<td> ".$filaAlumnos['celApoderado']. "</td>
-			<td><a   href='b_Nueva_Matricula2.php?id=". $filaAlumnos['idApoderado']." '  class='btn btn-warning'>Enviar</a></td>
+			<td><a   href='b_Nueva_Matricula2.php?id=".$filaAlumnos['idApoderado']." '  class='btn btn-warning'>Enviar</a></td>
 		 </tr>
 		 ";
 	}

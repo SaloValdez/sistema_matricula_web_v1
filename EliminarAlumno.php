@@ -5,9 +5,7 @@
   $resultado=$mysqli->query($query);
 ?>
 
-
-  <?php
-
+<?php
 
   if ($resultado>0) {
       header('location: Mantenimiento_Alumno2.php');
@@ -15,5 +13,4 @@
     echo "  no se elimino el registro";
   }
 
-
-   ?>
+  ?>

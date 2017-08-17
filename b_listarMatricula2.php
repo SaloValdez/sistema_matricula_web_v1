@@ -2,6 +2,7 @@
 // sleep(3.7);
 session_start();
 include 'a_conexion.php';
+$usuarioActivo = $_SESSION['user']; //para mostrar en la pagina()
 
 $usuarioActivo = $_SESSION['user']; //para mostrar en la pagina()
 $usuarioNumbre = $_SESSION['nombre'];
@@ -10,6 +11,7 @@ $usuarioEmail= $_SESSION['email'];
 $usuarioDni = $_SESSION['dni'];
 $usuarioNacimiento = $_SESSION['nacimiento'];
 $usuarioTelefono = $_SESSION['telefono'];
+
 if(!isset($_SESSION['user'])) {
     echo '<script> window.location="index.php"; </script>';
 }
@@ -40,7 +42,52 @@ if(!isset($_SESSION['user'])) {
                 <div class="box-body">
                   	<div class="row">
 	                  	<div class="col-md-12">
- <!-----------------------------------Contenido -------------------------------------------------------->
+		                          <!--Contenido-->
+                              <?php
+                            	require('a_conexion2.php');
+                            	$query="SELECT idMatricula,idAlumno,idGrado,fecMatricula,horMatricula,costMatricula,nivelMatricula,idEmpleado,idSeccion,idCarrera  FROM matricula";
+                            	$resultado=$mysqli->query($query);
+                            	?>
+                            	<center> <h3>Matricula</h3></center>
+                            	 <a href="#"><input class="btn_insertar" type="submit" value="Insertar"/></a>
+                            	<p></p>
+
+                            	<div class="col-md-15" style="overflow-x: auto">
+                            	  <table width="100%" align="center"     class="table table-hover  ">
+                                    <thead>
+                            		 <tr>
+                                   		 <td class="cabecera">ID</td>
+                            				   <td class="cabecera">ID ALUMNO</td>
+                            					 <td class="cabecera">ID GRADO</td>
+                                       <td class="cabecera">FECHA</td>
+                                       <td class="cabecera">HORA</td>
+                                       <td class="cabecera">COSTO</td>
+                                       <td class="cabecera">NIVEL</td>
+                            					 <td class="cabecera">ID EMPLEADO</td>
+                            					 <td class="cabecera">SECCION</td>
+                            					 <td class="cabecera">CARRERA</td>
+
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <?php while($row=$resultado->fetch_assoc()){?>
+                                      <tr> </tr>
+                                      <td><?php echo $row['idMatricula'];?></td>
+                            					<td><?php echo $row['idAlumno'];?></td>
+                                        <td><?php echo $row['idGrado'];?></td>
+                                        <td><?php echo $row['fecMatricula'];?></td>
+                                        <td><?php echo $row['horMatricula'];?></td>
+                                        <td><?php echo $row['costMatricula'];?></td>
+                            						<td><?php echo $row['nivelMatricula'];?></td>
+                            						<td><?php echo $row['idEmpleado'];?></td>
+                            						<td><?php echo $row['idSeccion'];?></td>
+                            						<td><?php echo $row['idCarrera'];?></td>
+                                      </tr>
+                                    </tbody>
+
+                                    <?php } ?>
+                                </table>
+                            	</div>
 
 
                               <?php
@@ -50,24 +97,11 @@ if(!isset($_SESSION['user'])) {
                               }
 
 
-                              //MatricularNuevo
-                              if(isset($_GET["code"]) && $_GET["code"]==md5('MatricularNuevo')){
-                                $mensaje = "Hola";
-                                include("b_busqueda.html");
-
-                              }
-
                                 //LISTAR - - - - - - - -
                                 if(isset($_GET["code"]) && $_GET["code"]==md5('ListarEmpleado')){
                                   $mensaje = "Hola";
-                                  include("listar_login2.php");
+                                  include("Listar_Empleado.php");
                                 }
-                                if(isset($_GET["code"]) && $_GET["code"]==md5('ListarMatricula')){
-                                  $mensaje = "Hola";
-                                  include("b_ListarMatricula.php");
-                                }
-
-
 
                                 //REGISTRAR - - - - - - - - - - -
                                 if(isset($_GET["code"]) && $_GET["code"]==md5('RegistrarEmpleado')){
@@ -79,24 +113,10 @@ if(!isset($_SESSION['user'])) {
                                 }
 
                                 //ANTENIMIENTO - - - - - -
-                                if(isset($_GET["code"]) && $_GET["code"]==md5('MantenimientoAlumno')){
-                                  include('Mantenimiento_Alumno.php');
-                                }
-                                  if(isset($_GET["code"]) && $_GET["code"]==md5('MantenimientoEmpleado')){
-                                  include('listar_login2.php');
-                                }
-                                if(isset($_GET["code"]) && $_GET["code"]==md5('MantenimientoApoderado')){
-                                  include('Mantenimiento_Apoderado.php');
-                                }
-                                if(isset($_GET["code"]) && $_GET["code"]==md5('MantenimientoCarrera')){
-                                  include('Mantenimiento_Carrera.php');
+                                if(isset($_GET["code"]) && $_GET["code"]==md5('MantenimientoEmpleado')){
+                                  include('Listar_Empleado.php');
                                 }
 
-                                //REPORTE
-                                  //ALUYMNO
-                                  if(isset($_GET["code"]) && $_GET["code"]==md5('ReporteEmpleado')){
-                                    include('Reporte_Alumno.php');
-                                  }
 
 
                                ?>
@@ -129,8 +149,6 @@ Todos los derechos reservados.
     <script src="js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="js/app.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="js/main.js"></script>
 
   </body>
 </html>

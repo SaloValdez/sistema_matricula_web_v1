@@ -26,6 +26,7 @@
 				$consulta = mysql_query("SELECT * FROM login INNER JOIN alumno on login.idAlumno = alumno.idAlumno  WHERE usuario='$usuario' AND contrasena='$contrasena'");
 				if (mysql_num_rows($consulta)>0) {
 					$row = mysql_fetch_array($consulta);
+					$_SESSION["user"] = $row['idLogin'];
 					$_SESSION["user"] = $row['usuario'];
 					$_SESSION["nombre"] = $row['nomAlumno'];
           $_SESSION["apellido"] = $row['apeAlumno'];

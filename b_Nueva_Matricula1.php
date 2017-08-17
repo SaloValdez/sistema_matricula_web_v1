@@ -97,6 +97,7 @@ if(!isset($_SESSION['user'])) {
                                       echo "No hubo resultados";
                                   }
 
+
                                   //COMBO SECCION
                                   $sql="SELECT * from carrera";
                                   $result = $mysqli->query($sql); //usamos la conexion para dar un resultado a la variable
@@ -129,11 +130,9 @@ if(!isset($_SESSION['user'])) {
                                       echo "No hubo resultados";
                                   }
 
+
                                   //CONSULTA APODERADO
-                                  $id=$_GET['id'];
-                                  $query="SELECT idApoderado,nomApoderado,apeApoderado,traApoderado,dniApoderado,celApoderado,dirApoderado FROM apoderado WHERE idApoderado='$id'";
-                                  $resultado=$mysqli->query($query);
-                                  $row=$resultado->fetch_assoc();
+
 
                               ?>
                              															<center><h2>.:: Mariculando Alumno(a)::.</h2></center>
@@ -147,30 +146,30 @@ if(!isset($_SESSION['user'])) {
                                  <h4>DATOS DEL APODERADO</h4>
                                  <hr class="hr-primary" />
                                <div class="row">
-                                 <input type="hidden"name="id"value="<?php echo $id; ?>">
+                                 <input type="hidden"name="id"value="">
                                  <div class="col-md-3"><b>CODIGO APODERADO:</b></div>
-                                <div class="col-md-7"><input class="no_edit"  type="txt" name="codigoApo" size="25"value="<?php echo $row['idApoderado'];?> " disabled/></div>
+                                <div class="col-md-7"><input class="no_edit" type="txt" name="codigoApo" size="25"value="" disabled /></div>
                               </div>
                               <br>
                               <div class="row">
                                 <div class="col-md-2"><b>NOMBRE:</b></div>
-                                <div class="col-md-3"><input class="no_edit"  type="txt" name="nombreApo" size="25"value="<?php echo $row['nomApoderado'];?> "disabled/></div>
+                                <div class="col-md-3"><input  type="txt" name="nombreApo" size="25"value=""/></div>
                                 <div class="col-md-2"><b>APELLIDO:</b></div>
-                                <div class="col-md-5"><input class="no_edit" type="txt"name="apellidoApo"size="25" value="<?php echo $row['apeApoderado'];?>" disabled/></div>
+                                <div class="col-md-5"><input  type="txt"name="apellidoApo"size="25" value="" /></div>
                              </div>
                              <br>
                              <div class="row">
                                <div class="col-md-2"><b>OCUPACION:</b></div>
-                               <div class="col-md-3"><input class="no_edit"  type="txt" name="ocupacionApo" size="25"value="<?php echo $row['traApoderado'];?> "disabled/></div>
+                               <div class="col-md-3"><input type="txt" name="ocupacionApo" size="25"value=""/></div>
                                <div class="col-md-2"><b>DNI:</b></div>
-                               <div class="col-md-5"><input class="no_edit"  type="txt"name="dniApo"size="25" value="<?php echo $row['dniApoderado'];?>" disabled/></div>
+                               <div class="col-md-5"><input  type="txt"name="dniApo"size="25" value="" /></div>
                             </div>
                              <br>
                             <div class="row">
                               <div class="col-md-2"><b>NUM CELULAR:</b></div>
-                              <div class="col-md-3"><input  class="no_edit" type="txt" name="celApo" size="25"value="<?php echo $row['celApoderado'];?> "disabled/></div>
+                              <div class="col-md-3"><input  type="txt" name="celApo" size="25"value=""/></div>
                               <div class="col-md-2"><b>DIRECCION:</b></div>
-                              <div class="col-md-5"><input class="no_edit" type="txt"name="dniApo"size="25" value="<?php echo $row['dirApoderado'];?>"disabled /></div>
+                              <div class="col-md-5"><input ctype="txt"name="dirApo"size="25" value="" /></div>
                            </div>
                           <!-- DATOS ALUMNO -->
                            <hr class="hr-primary" />
@@ -252,10 +251,9 @@ if(!isset($_SESSION['user'])) {
                          <div class="col-md-3"><input type="txt"name="costoMat"size="25" value="" /></div>
                          <div class="col-md-2"><b>OBSERVACION:</b></div>
                          <div class="col-md-3"> <textarea class="form-control" name="obsMat" rows="3"></textarea></div>
-
+                         
                       </div>
                       <br>
-
                       <div class="row">
                         <div class="col-md-2"><b>EMPLEADO:</b></div>
                         <div class="col-md-6">
@@ -266,9 +264,6 @@ if(!isset($_SESSION['user'])) {
 
                      </div>
 
-                      <?php
-                        echo "esto es el usususussu". $usuarioActivo;
-                       ?>
                           <hr class="hr-primary" />
                   		 <tr>
                   		 <td height="48" colspan="2"><center><input class="boton" type="submit" name="guardar" value="Guardar"/></center></td>
@@ -277,6 +272,8 @@ if(!isset($_SESSION['user'])) {
 
                   		</form>
                              		<!-- FIN    -----------------FORMULARIO DE REGISTRO ------------------------------------------------------------------>
+
+
 
 
 

@@ -18,8 +18,6 @@
           $genero=$_POST['genero'];
           $email=$_POST['email'];
 
-
-
           $query="UPDATE alumno SET
           idApoderado='$apoderado',
           apeAlumno='$apellido',
